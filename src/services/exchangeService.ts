@@ -1,10 +1,11 @@
 import axios, { AxiosError } from "axios";
 import { isExchangeResponse, ResponseType } from "../types/ResponseType";
+import { API_ACCESS_KEY } from "@env";
 
 export const getExchangeRate: () => Promise<ResponseType> = async () => {
   try {
     const response = await axios.get(
-      `http://data.fixer.io/api/latest?access_key=`
+      `http://data.fixer.io/api/latest?access_key=${API_ACCESS_KEY}` // ✅ Correct usage
     );
     if (
       response?.data?.success &&
@@ -13,6 +14,7 @@ export const getExchangeRate: () => Promise<ResponseType> = async () => {
     ) {
       return response.data;
     }
+
     console.log(response.data.error.info);
 
     return {

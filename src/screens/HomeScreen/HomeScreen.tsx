@@ -16,6 +16,7 @@ import {
 } from "../../utils/helpers/LastCurrencies";
 import { styles } from "./styles";
 import { dateFormater } from "../../utils/helpers/dateFormater";
+import { colors } from "../../utils/constants/colors";
 
 const HomeScreen = () => {
   const [allRates, setAllRates] = useState<RatesType | null>(null);
@@ -126,6 +127,7 @@ const HomeScreen = () => {
             value={search}
             style={styles.input}
             placeholder="Search by code or country name"
+            placeholderTextColor={colors.white}
             onChangeText={setSearch}
           />
         </View>
