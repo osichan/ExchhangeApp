@@ -12,7 +12,6 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     color: colors.white,
     fontSize: 20,
-    fontWeight: "bold",
   },
   date: {
     color: colors.white,

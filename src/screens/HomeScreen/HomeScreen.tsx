@@ -117,26 +117,26 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
+      <View style={styles.inputContainer}>
+        <TextInput
+          value={search}
+          style={styles.input}
+          placeholder="Search by code or country name"
+          placeholderTextColor={colors.white}
+          onChangeText={setSearch}
+        />
+      </View>
+      <View style={styles.infoContainer}>
+        <Text style={styles.error}>{error}</Text>
+        <Text style={styles.date}>{`${
+          isLastUpdated ? "" : "Last updated: "
+        } ${date}`}</Text>
+      </View>
       <Loader
         isLoading={isLoading}
         isDataLoaded={!!allRates}
         onRefresh={getData}
       >
-        <View style={styles.inputContainer}>
-          <TextInput
-            value={search}
-            style={styles.input}
-            placeholder="Search by code or country name"
-            placeholderTextColor={colors.white}
-            onChangeText={setSearch}
-          />
-        </View>
-        <View style={styles.infoContainer}>
-          <Text style={styles.error}>{error}</Text>
-          <Text style={styles.date}>{`${
-            isLastUpdated ? "" : "Last updated: "
-          } ${date}`}</Text>
-        </View>
         {filteredRates && Object.keys(filteredRates).length !== 0 ? (
           <View style={styles.cardContainer}>
             <FlatList
